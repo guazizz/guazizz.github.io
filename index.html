@@ -3,11 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>瓜子个人网站</title>
+    <title>瓜子の网站</title>
+    <style>
+        .nav-right{
+            float: right;
+            position: relative;
+            right: 4px;
+            bottom: 5px;
+        }
+        img{
+            width: 24px;
+        }
+        .nav{
+            float: right;
+            width: 163px;
+            height: 25px;
+            background-color: rgb(184, 184, 184);
+            position: fixed;
+            right: 10px;
+            border-radius: 7px;
+        }
+        .navimg{
+            position: relative;
+            top: 5px;
+        }
+        .head{
+            margin-left: 30px;
+        }
+        .ad{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+        }
+        .QQ{
+            width: 90px;
+            height: 90px;
+            position: relative;
+            left: 5px;
+            top: 5px;
+        }
+        .mode_switch{
+            position: relative;
+            left: 15px;
+            bottom: 125px;
+        }
+    </style>
 </head>
 <body>
-    <H1>欢迎！这里是瓜子的网站</H1>
-    <h2>这个网站拿来练练手玩玩，欢迎大家常来看看</h2>
-    <P>这是一段文字</P>
+    <script>
+        var mode = 0;
+        var headElements = document.getElementsByClassName('head');
+        var textElements = document.getElementsByClassName('text');
+        function mode_switch(){
+            if(mode==0){
+                mode=1;
+                console.log("切换黑夜")
+                for (let i = 0; i < headElements.length; i++) {
+                    headElements[i].style.backgroundColor = "#222";
+                    headElements[i].style.color = "#fff";}
+                for (let i = 0; i < textElements.length; i++) {
+                    textElements[i].style.backgroundColor = "#222";
+                    textElements[i].style.color = "#fff";}
+                document.body.style.backgroundColor = "#222";
+                document.body.style.color = "#fff";
+            } else{
+                mode=0;
+                console.log("切换白天")
+                for (let i = 0; i < headElements.length; i++) {
+                    headElements[i].style.backgroundColor = "#fff";
+                    headElements[i].style.color = "#333";}
+                for (let i = 0; i < textElements.length; i++) {
+                    textElements[i].style.backgroundColor = "#fff";
+                    textElements[i].style.color = "#333";} 
+                document.body.style.backgroundColor = "";
+                document.body.style.color = "";
+        }
+        }
+    </script>
+    <div class="nav">
+        <div class="nav-right">
+            <img class="navimg" src="githubLOGO.png" alt="">
+            <a id=github href="https://github.com/guazizz">GitHub</a>
+            <img class="navimg" src="bilibiliLOGO.png" alt="">
+            <a id=bilibili href="https://space.bilibili.com/1929773051">Bilibili</a>
+        </div>
+    </div>
+    <div class="head">
+        <h1>欢迎！这里是瓜子的网站！</h1>
+        <h2>这是我初学练手的网站，大家可以常来看看</h2>
+    </div>
+    <div class="text">
+        <p>1122363278</p>
+    </div>
+    <div class="ad">
+        <img class="QQ" src="QQ.png" alt="QQ">
+        <button class="mode_switch" onclick="mode_switch()">切换模式</button>
+    </div>
 </body>
 </html>
