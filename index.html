@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Mending Wall | Robert Frost | Analysis Presentation</title>
+  <title>Mending Wall | Line-by-Line Analysis | Robert Frost</title>
   <style>
     * {
       margin: 0;
@@ -13,14 +13,13 @@
 
     body {
       font-family: 'Segoe UI', 'Roboto', 'Georgia', serif;
-      background: #ece4db;  /* warm rustic background */
+      background: #e2d5c4;
       color: #2c2418;
       line-height: 1.5;
       overflow: hidden;
       height: 100vh;
     }
 
-    /* main presentation container */
     .presentation-container {
       position: relative;
       width: 100%;
@@ -28,24 +27,20 @@
       overflow: hidden;
     }
 
-    /* slides wrapper */
     .slides-wrapper {
       display: flex;
       width: 100%;
       height: 100%;
       transition: transform 0.4s ease-in-out;
-      will-change: transform;
     }
 
-    /* individual slide */
     .slide {
       flex: 0 0 100%;
       height: 100%;
       overflow-y: auto;
-      padding: 2rem 2.5rem;
+      padding: 1.8rem 2rem;
+      background: #fef8ef;
       scrollbar-width: thin;
-      background: #fef8f0;
-      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
     }
 
     .slide::-webkit-scrollbar {
@@ -59,123 +54,67 @@
       border-radius: 8px;
     }
 
-    /* typography */
     h1 {
-      font-size: 3.2rem;
-      letter-spacing: -0.01em;
+      font-size: 2.5rem;
       color: #5c3e2b;
       border-left: 8px solid #b87c4f;
-      padding-left: 1.2rem;
+      padding-left: 1rem;
       margin-bottom: 1rem;
-      font-weight: 600;
     }
 
     h2 {
-      font-size: 1.9rem;
-      margin: 1.2rem 0 0.75rem 0;
+      font-size: 1.6rem;
+      margin: 1rem 0 0.5rem;
       color: #6f4e34;
-      font-weight: 500;
       border-bottom: 2px solid #e5d5c0;
       display: inline-block;
     }
 
     h3 {
-      font-size: 1.4rem;
-      margin: 1rem 0 0.5rem;
+      font-size: 1.3rem;
+      margin: 0.8rem 0 0.4rem;
       color: #7c5a3e;
-      font-weight: 500;
     }
 
-    .poem-block {
+    .poem-line-card {
       background: #f3ede5;
-      padding: 1.5rem 2rem;
-      border-radius: 28px;
-      font-family: 'Courier New', 'Fira Code', monospace;
+      border-left: 5px solid #b87c4f;
+      padding: 0.8rem 1.2rem;
+      margin: 1rem 0;
+      border-radius: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .line-text {
+      font-family: 'Courier New', monospace;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #3a2a1c;
+      margin-bottom: 0.5rem;
+    }
+
+    .analysis {
+      color: #3e362c;
       font-size: 0.95rem;
-      line-height: 1.5;
-      white-space: pre-line;
-      color: #2a241e;
-      box-shadow: inset 0 0 0 1px #e9dfd2, 0 8px 18px rgba(0,0,0,0.05);
-      margin: 1.2rem 0;
-      max-height: 65vh;
-      overflow-y: auto;
+      line-height: 1.4;
     }
 
-    .poem-line {
-      margin-bottom: 0.2rem;
-    }
-
-    /* tables and cards */
-    .comparison-grid {
-      display: flex;
-      gap: 1.8rem;
-      margin: 1.2rem 0;
-      flex-wrap: wrap;
-    }
-    .card {
-      background: white;
+    .context-box {
+      background: #e7dbce;
       border-radius: 24px;
-      padding: 1.2rem 1.5rem;
-      flex: 1;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      border: 1px solid #e1d5c8;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1.5rem;
     }
-    .card h3 {
-      margin-top: 0;
-      border-left: 4px solid #b87c4f;
-      padding-left: 0.75rem;
-    }
+
     .quote {
       font-style: italic;
       background: #f7f0e8;
-      padding: 0.2rem 0.8rem;
+      padding: 0.2rem 0.6rem;
       border-radius: 20px;
-      font-family: monospace;
-      color: #8b5a2e;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-      border-radius: 20px;
-      overflow: hidden;
-      margin: 1rem 0;
-    }
-    th, td {
-      border: 1px solid #e2d4c6;
-      padding: 10px 14px;
-      text-align: left;
-      vertical-align: top;
-    }
-    th {
-      background: #e9dfd2;
-      color: #4d3521;
-      font-weight: 600;
-    }
-
-    .key-quote {
-      background: #f6efd9;
-      padding: 0.4rem 1rem;
-      border-radius: 40px;
       font-family: monospace;
       font-size: 0.9rem;
-      display: inline-block;
-      margin: 0.25rem 0;
     }
 
-    .timing-badge {
-      background: #c2aa8b;
-      color: white;
-      font-size: 0.7rem;
-      border-radius: 30px;
-      padding: 2px 10px;
-      display: inline-block;
-      margin-left: 1rem;
-      vertical-align: middle;
-    }
-
-    /* navigation */
     .nav-controls {
       position: fixed;
       bottom: 20px;
@@ -183,62 +122,51 @@
       display: flex;
       gap: 12px;
       z-index: 100;
-      background: rgba(44, 36, 24, 0.75);
+      background: rgba(44, 36, 24, 0.8);
       backdrop-filter: blur(10px);
-      padding: 10px 18px;
+      padding: 8px 16px;
       border-radius: 60px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
+
     .nav-btn {
       background: #fef2e6;
       border: none;
-      font-size: 1.5rem;
-      width: 44px;
-      height: 44px;
-      border-radius: 44px;
+      font-size: 1.4rem;
+      width: 42px;
+      height: 42px;
+      border-radius: 42px;
       cursor: pointer;
-      transition: 0.2s;
       font-weight: bold;
       color: #4f3522;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
+
     .nav-btn:hover {
       background: #e6d5c2;
-      transform: scale(1.02);
     }
+
     .slide-counter {
       background: #2c2418;
       color: #f3e7db;
-      padding: 0 16px;
+      padding: 0 14px;
       border-radius: 40px;
       display: flex;
       align-items: center;
       font-size: 0.9rem;
-      font-weight: 500;
-      letter-spacing: 0.5px;
     }
-    @media (max-width: 680px) {
-      .slide { padding: 1.2rem; }
-      h1 { font-size: 2.2rem; }
-      h2 { font-size: 1.5rem; }
-      .comparison-grid { flex-direction: column; }
-    }
+
     footer {
-      margin-top: 2rem;
+      margin-top: 1.5rem;
       font-size: 0.7rem;
       text-align: center;
       color: #aa9b88;
       border-top: 1px solid #e2d4c6;
-      padding-top: 1rem;
+      padding-top: 0.8rem;
     }
-    .highlight {
-      background: #fff1b5;
-      border-radius: 12px;
-      padding: 0 4px;
-    }
-    .button-reset {
-      background: none;
-      border: none;
+
+    @media (max-width: 680px) {
+      .slide { padding: 1.2rem; }
+      h1 { font-size: 1.8rem; }
+      .line-text { font-size: 0.9rem; }
     }
   </style>
 </head>
@@ -246,164 +174,197 @@
 
 <div class="presentation-container">
   <div class="slides-wrapper" id="slidesWrapper">
-    <!-- SLIDE 1 - TITLE + READING (2 min opening) -->
-    <div class="slide" id="slide1">
-      <h1>🌸 Mending Wall<br><span style="font-size: 1.6rem;">Robert Frost</span></h1>
-      <p style="font-size: 1.2rem; margin-top: 0.5rem;">GCSE English Literature · Poetry Analysis</p>
-      <div style="height: 1rem;"></div>
-      <div style="background: #e7dbce; border-radius: 28px; padding: 1rem 1.8rem; margin: 1rem 0;">
-        <p style="font-weight: 600; font-size: 1.1rem;">🎧 Opening: Poem Reading (2 min)</p>
-        <p style="font-style: italic;">Listen to the rhythm, the contrast, and the voices. Let the words settle before we analyse.</p>
+    
+    <!-- SLIDE 1: CONTEXT + AUTHOR INFO -->
+    <div class="slide">
+      <h1>📖 Robert Frost & Context</h1>
+      <div class="context-box">
+        <p><strong>Robert Frost (1874–1963)</strong><br>
+        American poet · Famous for poems about rural New England · Won 4 Pulitzer Prizes</p>
+        <p style="margin-top: 8px;"><strong>📅 "Mending Wall"</strong> – Published 1914 in <em>North of Boston</em></p>
+        <p>Frost often wrote about everyday life, but his poems hide deeper questions. He liked to show two sides of an argument without picking one.</p>
+        <p style="margin-top: 8px;">🧱 <strong>What's the poem about?</strong> Two neighbours meet each spring to fix the stone wall between their properties. The speaker thinks the wall is pointless. The neighbour just repeats: <span class="quote">“Good fences make good neighbours.”</span></p>
+        <p style="margin-top: 8px;">🎯 <strong>Key idea:</strong> The wall is real, but it also stands for the barriers we build between people — habits, traditions, and beliefs we follow without thinking.</p>
       </div>
-      <div class="poem-block" id="poemText">
-        <span style="font-weight: 600;">Mending Wall</span><br><br>
-        Something there is that doesn’t love a wall,<br>
+      <h2>🎭 What We'll Look At</h2>
+      <ul style="margin-left: 1.5rem;">
+        <li>Line-by-line analysis of key moments</li>
+        <li>The speaker vs the neighbour</li>
+        <li>Language tricks (personification, simile, humour)</li>
+        <li>Why the poem still matters today</li>
+      </ul>
+      <footer>⬇️ Use arrows → to go through each key line</footer>
+    </div>
+
+    <!-- SLIDE 2: LINES 1-4 -->
+    <div class="slide">
+      <h1>📜 Lines 1–4</h1>
+      <div class="poem-line-card">
+        <div class="line-text">“Something there is that doesn’t love a wall,<br>
         That sends the frozen-ground-swell under it,<br>
         And spills the upper boulders in the sun,<br>
-        And makes gaps even two can pass abreast.<br>
-        The work of hunters is another thing:<br>
-        I have come after them and made repair<br>
-        Where they have left not one stone on a stone,<br>
-        But they would have the rabbit out of hiding,<br>
-        To please the yelping dogs. The gaps I mean,<br>
-        No one has seen them made or heard them made,<br>
-        But at spring mending-time we find them there.<br>
-        I let my neighbour know beyond the hill;<br>
+        And makes gaps even two can pass abreast.”</div>
+        <div class="analysis">
+          <strong>🔍 What's happening:</strong> The poem starts with a mystery. Some force — maybe nature — hates the wall. Frost uses <strong>personification</strong> (giving human feelings to nature). The wall gets broken by frost, ground movement, and gravity.<br><br>
+          <strong>💡 Why it matters:</strong> The speaker suggests the wall is unnatural. Nature keeps trying to tear it down. “Even two can pass abreast” — the gaps are big enough for two people to walk through side by side. Maybe nature wants people to connect, not be separated.
+        </div>
+      </div>
+      <div class="poem-line-card">
+        <div class="line-text">“The work of hunters is another thing:”</div>
+        <div class="analysis">
+          <strong>🔍 Quick note:</strong> Hunters also break the wall, but for a different reason — to flush out rabbits. The speaker has to fix their damage too.
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: LINES 12-16 -->
+    <div class="slide">
+      <h1>📜 Lines 12–16</h1>
+      <div class="poem-line-card">
+        <div class="line-text">“I let my neighbour know beyond the hill;<br>
         And on a day we meet to walk the line<br>
         And set the wall between us once again.<br>
         We keep the wall between us as we go.<br>
-        To each the boulders that have fallen to each.<br>
-        And some are loaves and some so nearly balls<br>
+        To each the boulders that have fallen to each.”</div>
+        <div class="analysis">
+          <strong>🔍 What's happening:</strong> Every spring, they meet to fix the wall. It's like a ritual. But notice: they <strong>“keep the wall between us”</strong> even while working together. They stay on their own sides.<br><br>
+          <strong>💡 Why it matters:</strong> The wall isn't just stone — it's a symbol of how people keep distance between each other. Even when cooperating, they don't really connect. Frost shows the wall creates separation, not friendship.
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: LINES 17-23 -->
+    <div class="slide">
+      <h1>📜 Lines 17–23</h1>
+      <div class="poem-line-card">
+        <div class="line-text">“And some are loaves and some so nearly balls<br>
         We have to use a spell to make them balance:<br>
         ‘Stay where you are until our backs are turned!’<br>
         We wear our fingers rough with handling them.<br>
         Oh, just another kind of outdoor game,<br>
-        One on a side. It comes to little more:<br>
-        There where it is we do not need the wall:<br>
-        He is all pine and I am apple orchard.<br>
-        My apple trees will never get across<br>
+        One on a side. It comes to little more:”</div>
+        <div class="analysis">
+          <strong>🔍 What's happening:</strong> The stones are oddly shaped — some like loaves of bread, some like balls. They joke and use a “spell” to make them stay. The speaker calls the whole thing “just another kind of outdoor game.”<br><br>
+          <strong>💡 Why it matters:</strong> The speaker mocks the wall. He thinks it's pointless — just a game. The humour shows his attitude: he doesn't take the wall seriously. But the neighbour does.
+        </div>
+      </div>
+      <div class="poem-line-card">
+        <div class="line-text">“There where it is we do not need the wall:<br>
+        He is all pine and I am apple orchard.”</div>
+        <div class="analysis">
+          <strong>🔍 What's happening:</strong> The speaker gives a logical reason: his apple trees and the neighbour's pine trees won't mix. They don't need a wall.<br>
+          <strong>💡 Why it matters:</strong> The speaker represents questioning and common sense. He sees no danger — so why keep the wall?
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: LINES 24-27 -->
+    <div class="slide">
+      <h1>📜 Lines 24–27</h1>
+      <div class="poem-line-card">
+        <div class="line-text">“My apple trees will never get across<br>
         And eat the cones under his pines, I tell him.<br>
-        He only says, ‘Good fences make good neighbours.’<br>
-        Spring is the mischief in me, and I wonder<br>
-        If I could put a notion in his head:<br>
-        ‘Why do they make good neighbours? Isn’t it<br>
+        He only says, ‘Good fences make good neighbours.’”</div>
+        <div class="analysis">
+          <strong>🔍 What's happening:</strong> The speaker makes a funny joke — apple trees don't eat pine cones! He's being playful, trying to make the neighbour see how silly the wall is.<br><br>
+          <strong>💡 Why it matters:</strong> The neighbour's reply is short: <span class="quote">“Good fences make good neighbours.”</span> He doesn't argue. He just repeats the old saying. This shows the difference between them: one thinks, the other just follows tradition. The neighbour won't change his mind.
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: LINES 30-34 -->
+    <div class="slide">
+      <h1>📜 Lines 30–34</h1>
+      <div class="poem-line-card">
+        <div class="line-text">“‘Why do they make good neighbours? Isn’t it<br>
         Where there are cows? But here there are no cows.<br>
         Before I built a wall I’d ask to know<br>
         What I was walling in or walling out,<br>
-        And to whom I was like to give offence.<br>
-        Something there is that doesn’t love a wall,<br>
+        And to whom I was like to give offence.”</div>
+        <div class="analysis">
+          <strong>🔍 What's happening:</strong> The speaker imagines what he'd like to say to his neighbour. He argues that walls only make sense if you have cows that might wander. But here, there are no cows. So why have a wall?<br><br>
+          <strong>💡 Why it matters:</strong> This is the heart of the poem. The speaker asks the big question: <strong>“What I was walling in or walling out?”</strong> Frost wants us to ask ourselves the same thing. What barriers do we build without thinking? Who are we keeping out — or keeping in?
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 7: LINES 35-38 -->
+    <div class="slide">
+      <h1>📜 Lines 35–38</h1>
+      <div class="poem-line-card">
+        <div class="line-text">“Something there is that doesn’t love a wall,<br>
         That wants it down.’ I could say ‘Elves’ to him,<br>
         But it’s not elves exactly, and I’d rather<br>
-        He said it for himself. I see him there,<br>
+        He said it for himself.”</div>
+        <div class="analysis">
+          <strong>🔍 What's happening:</strong> The speaker repeats the opening line — nature wants the wall down. He jokes that he could say elves did it, but that's not true. More importantly, he wishes the neighbour would figure this out on his own.<br><br>
+          <strong>💡 Why it matters:</strong> The speaker doesn't want to force his ideas. He wants the neighbour to think for himself. But the neighbour won't.
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 8: LINES 38-42 -->
+    <div class="slide">
+      <h1>📜 Lines 38–42</h1>
+      <div class="poem-line-card">
+        <div class="line-text">“I see him there,<br>
         Bringing a stone grasped firmly by the top<br>
         In each hand, like an old-stone savage armed.<br>
         He moves in darkness as it seems to me,<br>
-        Not of woods only and the shade of trees.<br>
-        He will not go behind his father’s saying,<br>
+        Not of woods only and the shade of trees.”</div>
+        <div class="analysis">
+          <strong>🔍 What's happening:</strong> The speaker watches his neighbour carry stones. He uses a <strong>simile</strong>: “like an old-stone savage armed” — like a caveman holding weapons. Then he says the neighbour “moves in darkness.”<br><br>
+          <strong>💡 Why it matters:</strong> This is harsh. “Darkness” doesn't mean literal dark — it means the neighbour is stuck in old thinking. He won't question anything. The caveman image makes him seem primitive, unchanging. The speaker feels frustrated.
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 9: LINES 43-45 -->
+    <div class="slide">
+      <h1>📜 Lines 43–45 (End)</h1>
+      <div class="poem-line-card">
+        <div class="line-text">“He will not go behind his father’s saying,<br>
         And he likes having thought of it so well<br>
-        He says again, ‘Good fences make good neighbours.’<br>
-      </div>
-      <footer>⬇️ Use arrow buttons to navigate · Full analysis in following slides</footer>
-    </div>
-
-    <!-- SLIDE 2 - Context & Overview -->
-    <div class="slide" id="slide2">
-      <h1>📖 Context & Overview</h1>
-      <p><strong>Robert Frost (1874–1963)</strong> · American poet · Writes about farms and nature · Published 1914 in <em>North of Boston</em></p>
-      <p>Two neighbours meet each spring to fix a stone wall. The speaker asks why they need it. The neighbour just says: <span class="quote">“Good fences make good neighbours.”</span></p>
-      <h2>⚡ Main Conflict</h2>
-      <p>The poem looks at old ways vs new ideas. Should we keep doing things just because we always have? Frost wants us to think about why we put up walls.</p>
-      <div style="background: #f1e7dd; border-radius: 24px; padding: 1rem; margin-top: 1rem;">
-        <p>📅 <strong>Published:</strong> 1914 (North of Boston)</p>
-        <p>🧱 <strong>Main idea:</strong> The wall is real but also stands for how we keep people out.</p>
-      </div>
-      <footer>Presented by: Philip, Chris Honor 8-3</footer>
-    </div>
-
-    <!-- SLIDE 3 - The Speaker vs. The Neighbour -->
-    <div class="slide" id="slide3">
-      <h1>🗣️ The Speaker vs. The Neighbour</h1>
-      <div class="comparison-grid">
-        <div class="card">
-          <h3>🌿 The Speaker</h3>
-          <p>Asks questions · playful · makes jokes · thinks wall is useless · wants to connect</p>
-          <p><span class="quote">“Something there is that doesn’t love a wall”</span></p>
-          <p><span class="quote">“My apple trees will never get across / And eat the cones”</span> — funny idea</p>
-          <p>Wants to <em>“put a notion in his head”</em> — make him think</p>
-        </div>
-        <div class="card">
-          <h3>🪨 The Neighbour</h3>
-          <p>Sticks to old ways · stubborn · just repeats what his dad said · wants to stay apart</p>
-          <p><span class="quote">“Good fences make good neighbours”</span> (twice)</p>
-          <p><span class="quote">“like an old-stone savage armed”</span> — like a caveman, won't change</p>
-          <p><span class="quote">“He moves in darkness”</span> — won't think for himself</p>
+        He says again, ‘Good fences make good neighbours.’”</div>
+        <div class="analysis">
+          <strong>🔍 What's happening:</strong> The poem ends with the neighbour repeating the proverb one last time. He won't question what his father said. He thinks he's being clever, but really he's just copying.<br><br>
+          <strong>💡 Why it matters:</strong> The wall stays. The neighbour doesn't change. Frost doesn't give us an answer — he leaves it open. The question hangs in the air: should we keep building walls just because we always have?
         </div>
       </div>
-      <h2>🧩 What It Means</h2>
-      <p>The neighbour just follows tradition. The speaker thinks for himself. But the wall stays up — Frost doesn't say who is right.</p>
-    </div>
-
-    <!-- SLIDE 4 - Key Themes -->
-    <div class="slide" id="slide4">
-      <h1>🎭 Key Themes</h1>
-      <table>
-        <thead>
-          <tr><th>Theme</th><th>Explanation & Evidence</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Old Ways vs New Ideas</strong></td><td>Neighbour: <span class="quote">“will not go behind his father’s saying”</span> — just repeats. Speaker wants to ask why.</td></tr>
-          <tr><td><strong>Walls Between People</strong></td><td>Wall shows separation: <span class="quote">“We keep the wall between us as we go”</span> — even when working together, they stay apart.</td></tr>
-          <tr><td><strong>Nature vs Human Walls</strong></td><td>Nature breaks the wall: <span class="quote">“frozen-ground-swell”</span> makes gaps. Nature seems to want it down.</td></tr>
-          <tr><td><strong>Think for Yourself vs Just Follow</strong></td><td>Speaker thinks; neighbour just repeats old sayings without thinking.</td></tr>
-        </tbody>
-      </table>
-      <p>💡 Frost doesn't say who wins — he wants <em>us</em> to ask: what are we walling in or walling out?</p>
-    </div>
-
-    <!-- SLIDE 5 - Language and Structure -->
-    <div class="slide" id="slide5">
-      <h1>✍️ Language & Structure</h1>
-      <h2>🔠 Language Tricks</h2>
-      <ul style="margin-left: 1.5rem;">
-        <li><strong>Personification:</strong> <span class="quote">“Something there is that doesn’t love a wall”</span> — nature acts like it hates walls.</li>
-        <li><strong>Simile:</strong> <span class="quote">“like an old-stone savage armed”</span> — neighbour is like a caveman, stuck in the past.</li>
-        <li><strong>Metaphor:</strong> <span class="quote">“darkness”</span> — means he won't think or question things.</li>
-        <li><strong>Humour:</strong> <span class="quote">“My apple trees will never get across / And eat the cones”</span> — makes the wall seem silly.</li>
-      </ul>
-      <h2>📐 How the Poem is Built</h2>
-      <ul style="margin-left: 1.5rem;">
-        <li><strong>Blank verse</strong> (unrhymed iambic pentameter) — sounds like normal talking.</li>
-        <li><strong>Repetition:</strong> First line comes back later. The proverb is said twice — shows the neighbour won't change.</li>
-        <li><strong>Enjambment:</strong> Lines run on without stops — shows the speaker's mind is active.</li>
-        <li><strong>Like a monologue:</strong> We see the neighbour through the speaker's eyes.</li>
-      </ul>
-      <div class="key-quote">⭐ Key point: No ending — the wall is still there. The argument never ends.</div>
-    </div>
-
-    <!-- SLIDE 6 - Conclusion & Key Quotations -->
-    <div class="slide" id="slide6">
-      <h1>🏁 Conclusion & Key Quotes</h1>
-      <div style="background: #e5d9cd; border-radius: 32px; padding: 1.2rem; margin: 1rem 0;">
-        <p><strong>What Frost Leaves Us With:</strong> No one wins. The wall stays. The neighbour doesn't change. But the speaker makes us think: <em>“Before I built a wall I’d ask to know / What I was walling in or walling out.”</em> The poem asks us to look at our own walls.</p>
+      <div style="background: #e5d9cd; border-radius: 20px; padding: 1rem; margin-top: 1rem;">
+        <p><strong>🏁 What Frost Leaves Us With:</strong> No winner. But the speaker's question stays with us: <span class="quote">“Before I built a wall I'd ask to know what I was walling in or walling out.”</span> That's the poem's message — think before you build barriers.</p>
       </div>
-      <h2>📜 Top 4 Quotes</h2>
+    </div>
+
+    <!-- SLIDE 10: SUMMARY + KEY QUOTES -->
+    <div class="slide">
+      <h1>📌 Summary & Key Quotes</h1>
+      <h2>⚡ Main Ideas</h2>
+      <ul style="margin-left: 1.2rem; margin-bottom: 1rem;">
+        <li><strong>Tradition vs questioning:</strong> The neighbour repeats his father; the speaker asks “why?”</li>
+        <li><strong>Walls separate people:</strong> Even working together, they stay apart.</li>
+        <li><strong>Nature wants walls down:</strong> The “something” that doesn't love a wall is nature itself.</li>
+        <li><strong>Think for yourself:</strong> The poem challenges us to examine our own barriers.</li>
+      </ul>
+      <h2>📜 Top Quotes to Remember</h2>
       <ul style="list-style: none; padding-left: 0;">
-        <li>🔹 <span class="quote">“Something there is that doesn’t love a wall”</span> — nature wants walls down.</li>
-        <li>🔹 <span class="quote">“Good fences make good neighbours”</span> — the old saying the neighbour keeps saying.</li>
-        <li>🔹 <span class="quote">“He moves in darkness as it seems to me”</span> — he doesn't think for himself.</li>
-        <li>🔹 <span class="quote">“Before I built a wall I’d ask to know / What I was walling in or walling out”</span> — the big question of the poem.</li>
+        <li>🔹 <span class="quote">“Something there is that doesn’t love a wall”</span> — nature vs human division.</li>
+        <li>🔹 <span class="quote">“Good fences make good neighbours”</span> — the old saying, repeated.</li>
+        <li>🔹 <span class="quote">“like an old-stone savage armed”</span> — neighbour as stubborn, primitive.</li>
+        <li>🔹 <span class="quote">“Before I built a wall I’d ask to know / What I was walling in or walling out”</span> — the poem's central question.</li>
       </ul>
-      <h2>💭 Think About This</h2>
-      <p><em>Are there walls in your life — habits, beliefs, boundaries — that you keep without asking why?</em></p>
-      <footer>Robert Frost asks every generation to question the walls they build.</footer>
+      <div style="background: #efe2d4; border-radius: 24px; padding: 1rem; margin-top: 1rem;">
+        <p><strong>💭 Think About:</strong> Are there “walls” in your life — habits, beliefs, boundaries — that you keep without asking why? Frost wants us to question them.</p>
+      </div>
+      <footer>Line-by-line analysis complete · Use arrows to review</footer>
     </div>
   </div>
 
-  <!-- navigation buttons -->
+  <!-- navigation -->
   <div class="nav-controls">
-    <button class="nav-btn" id="prevBtn" aria-label="Previous slide">◀</button>
-    <div class="slide-counter" id="slideCounter">1 / 6</div>
-    <button class="nav-btn" id="nextBtn" aria-label="Next slide">▶</button>
+    <button class="nav-btn" id="prevBtn">◀</button>
+    <div class="slide-counter" id="slideCounter">1 / 10</div>
+    <button class="nav-btn" id="nextBtn">▶</button>
   </div>
 </div>
 
@@ -417,7 +378,7 @@
     let currentIndex = 0;
     const totalSlides = slides.length;
 
-    function updateSlidePosition() {
+    function updateSlide() {
       slidesWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
       counterSpan.innerText = `${currentIndex + 1} / ${totalSlides}`;
     }
@@ -425,28 +386,20 @@
     function nextSlide() {
       if (currentIndex < totalSlides - 1) {
         currentIndex++;
-        updateSlidePosition();
-      } else {
-        // optional subtle feedback
-        nextBtn.style.transform = 'scale(0.95)';
-        setTimeout(() => { nextBtn.style.transform = ''; }, 150);
+        updateSlide();
       }
     }
 
     function prevSlide() {
       if (currentIndex > 0) {
         currentIndex--;
-        updateSlidePosition();
-      } else {
-        prevBtn.style.transform = 'scale(0.95)';
-        setTimeout(() => { prevBtn.style.transform = ''; }, 150);
+        updateSlide();
       }
     }
 
     prevBtn.addEventListener('click', prevSlide);
     nextBtn.addEventListener('click', nextSlide);
 
-    // keyboard navigation (left/right arrows)
     window.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowLeft') {
         prevSlide();
@@ -457,25 +410,17 @@
       }
     });
 
-    // Optional: Touch/swipe support for mobile
     let touchStartX = 0;
-    let touchEndX = 0;
     slidesWrapper.addEventListener('touchstart', (e) => {
       touchStartX = e.changedTouches[0].screenX;
     });
     slidesWrapper.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
+      let touchEndX = e.changedTouches[0].screenX;
       if (touchEndX < touchStartX - 40) nextSlide();
       if (touchEndX > touchStartX + 40) prevSlide();
     });
 
-    // reset to first slide
-    updateSlidePosition();
-
-    // Auto-highlight poem reading presence - no autoplay but ensures user can read along.
-    // to respect the 2-min opening reading, the first slide has full poem.
-    // Provide a small timer note: we can optionally show a gentle message but not necessary.
-    console.log('Presentation Ready — Mending Wall by Robert Frost');
+    updateSlide();
   })();
 </script>
 </body>
